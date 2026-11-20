@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>Neon Arcade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="/socket.io/socket.io.js"></script><script src="https://unpkg.com/lucide@latest"></script></head><body>
+<div class="ambient" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+<section id="menu"><header class="tile hero"><h1><i data-lucide="gamepad-2"></i> Neon Arcade</h1>
+<div class="row"><input id="nick" maxlength="12" placeholder="Nickname"><button class="btn" id="create"><i data-lucide="plus"></i> Create Room</button>
+<input id="code" maxlength="4" placeholder="CODE" style="width:90px;text-transform:uppercase"><button class="btn alt" id="join"><i data-lucide="log-in"></i> Join</button></div></header>
+<div class="row" id="filters" style="margin:12px 0"><button class="chip on" data-f="all">All</button><button class="chip" data-f="duel">2-Player</button><button class="chip" data-f="party">Party</button></div>
+<div class="bento" id="grid"></div></section>
+<section id="lobby" hidden><div class="bento"><div class="tile"><small>Room code</small><div class="big" id="lc"></div><button class="ghost" id="copy"><i data-lucide="copy"></i> Copy</button></div>
+<div class="tile"><small>Game</small><select id="gs"></select><p id="hint"></p><button class="btn" id="st">Start Game</button></div>
+<div class="tile" style="grid-column:1/-1"><small>Players</small><div class="row" id="av"></div></div></div>
+<button class="ghost leave" style="margin-top:12px"><i data-lucide="log-out"></i> Leave Room</button></section>
+<section id="game" hidden><div class="tile row bar"><b>Room <span id="rc"></span></b><span id="tn" class="turn"></span><span id="tm"></span><span id="sb" class="row"></span><button class="ghost leave"><i data-lucide="log-out"></i> Leave</button></div>
+<div class="tile stage" id="stage"></div>
+<div id="ov" class="tile ov" hidden><b id="om"></b><button class="btn" id="pa">Play Again</button><button class="btn alt" id="rl">Return to Lobby</button></div></section>
+<dialog id="dlg"><h3 id="mt"></h3><p id="mb"></p><button class="btn" onclick="dlg.close()">Got it</button></dialog><div id="toast" class="toast" hidden></div>
+<script type="module" src="js/main.js"></script></body></html>
